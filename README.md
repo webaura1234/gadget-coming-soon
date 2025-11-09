@@ -70,3 +70,26 @@ latprac/
 - **Colors**: Edit `src/LandingPage.css` to change colors, opacity, and styling
 - **Text**: Edit `src/LandingPage.jsx` to modify headlines and copy
 - **Layout**: Adjust spacing and sizing in `src/LandingPage.css`
+
+## Supabase Row Level Security (RLS)
+
+### Why INSERT Policies Use WITH CHECK Only
+
+INSERT policies only need `WITH CHECK` because there's no existing row to check against during insert. The `USING` clause is for checking existing rows, which only applies to SELECT, UPDATE, and DELETE.
+
+### Common Issues Checklist
+
+1. Environment Variables
+   - No whitespace in VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY
+   - URL ends with .supabase.co (no trailing slash)
+   - Using anon key (starts with eyJ...), never service_role
+   - Restart Vite after changing .env
+
+2. RLS Policy Debug
+   - Check policy names match exactly
+   - Verify RLS is enabled on table
+   - Test with psql: SET ROLE anon; INSERT INTO subscribers...
+
+3. Sequences (if using SERIAL)
+   - Ensure anon has USAGE on sequences
+   - Not needed for IDENTITY columns

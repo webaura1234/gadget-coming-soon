@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import '../LandingPage.css'
+import { supabase } from '../supabaseClient' // added
 
 // Generate unique request ID for idempotency
 function generateRequestId() {
@@ -24,35 +25,29 @@ function ContactPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     if (isSubmitting) return
-    
+
     setIsSubmitting(true)
     setSubmitMessage('')
     setMessageType('')
-    
-    const ENDPOINT = import.meta.env.VITE_CONTACT_API || 'http://localhost:3001/api/contact'
-    
+
     try {
-      const res = await fetch(ENDPOINT, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'text/plain;charset=UTF-8' // Use text/plain to avoid CORS preflight
-        },
-        body: JSON.stringify({
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          message: formData.message.trim(),
-          requestId: generateRequestId() // Add unique ID for idempotency
-        }),
-      })
-      
-      const data = await res.json()
-      
-      if (!data || !data.ok) {
-        throw new Error(data?.error || 'Failed to send message')
+      const payload = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        message: formData.message.trim(),
+        created_at: new Date().toISOString()
       }
-      
+
+      const { data, error } = await supabase
+        .from('contacts')
+        .insert([payload])
+
+      if (error) {
+        throw error
+      }
+
       setSubmitMessage('Thank you! Your message has been sent successfully.')
       setMessageType('success')
       setFormData({
@@ -60,7 +55,7 @@ function ContactPage() {
         email: '',
         message: ''
       })
-      
+
       // Clear success message after 5 seconds
       setTimeout(() => {
         setSubmitMessage('')
@@ -70,7 +65,7 @@ function ContactPage() {
       console.error('Error submitting contact form:', error)
       setSubmitMessage('Sorry, something went wrong. Please try again.')
       setMessageType('error')
-      
+
       // Clear error message after 5 seconds
       setTimeout(() => {
         setSubmitMessage('')
@@ -91,37 +86,42 @@ function ContactPage() {
   return (
     <div className="page-container">
       <Navbar />
-      
+
       <div className="page-content">
         <div className={`contact-section-full ${isVisible ? 'animate-fade-in-up' : ''}`}>
           <h1 className="page-headline">
             <span className="page-headline-gradient">Contact Us</span>
           </h1>
-          
+
           <p className="section-text" style={{ marginBottom: '3rem' }}>
-            Have questions? We'd love to hear from you. Get in touch with our team.
+          Whether it’s a question, suggestion, or feedback — our team would love to hear.
           </p>
 
           <div className="contact-grid">
             <div className="contact-info-section">
               <div className="contact-item-detailed">
                 <h3 className="contact-label">Email</h3>
-                <a href="mailto:info@gadget360.com" className="contact-link-large">
-                  info@gadget360.com
+                <a href="hpsventerprisespvtltd@gmail.com" className="contact-link-large">
+                  hpsventerprisespvtltd@gmail.com
                 </a>
               </div>
-              
+
               <div className="contact-item-detailed">
                 <h3 className="contact-label">Follow Us</h3>
-                <div className="social-links">
-                  <a href="#" className="social-link" onClick={(e) => { e.preventDefault(); alert('Coming Soon'); }}>
-                    Instagram
+                <div className="social-links"> <a href="https://www.instagram.com/gadget360india?igsh=MWVyMGpzdmVzazY1Yw==" target="_blank" className="social-link">
+                  Instagram
+                </a>
+
+                  <a 
+                    href="https://wa.me/919848014599" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="social-link"
+                  >
+                    Whatsapp
                   </a>
                   <a href="#" className="social-link" onClick={(e) => { e.preventDefault(); alert('Coming Soon'); }}>
                     Twitter
-                  </a>
-                  <a href="#" className="social-link" onClick={(e) => { e.preventDefault(); alert('Coming Soon'); }}>
-                    LinkedIn
                   </a>
                 </div>
               </div>
