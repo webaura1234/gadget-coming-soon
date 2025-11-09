@@ -1,12 +1,7 @@
 import { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import '../LandingPage.css'
-import { supabase } from '../supabaseClient' // added
-
-// Generate unique request ID for idempotency
-function generateRequestId() {
-  return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-}
+import { supabase } from '../supabaseClient'
 
 function ContactPage() {
   const [isVisible, setIsVisible] = useState(false)
@@ -40,7 +35,7 @@ function ContactPage() {
         created_at: new Date().toISOString()
       }
 
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('contacts')
         .insert([payload])
 
@@ -120,9 +115,7 @@ function ContactPage() {
                   >
                     Whatsapp
                   </a>
-                  <a href="#" className="social-link" onClick={(e) => { e.preventDefault(); alert('Coming Soon'); }}>
-                    Twitter
-                  </a>
+                  
                 </div>
               </div>
             </div>

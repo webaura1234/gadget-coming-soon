@@ -8,9 +8,6 @@ function Footer() {
           <p className="footer-text">
             © {new Date().getFullYear()} GADGET 360. All rights reserved.
           </p>
-          {/* <p className="footer-text">
-            Premium phone cases and accessories for mobile enthusiasts across India.
-          </p> */}
         </div>
         <div className="footer-credit">
           <p className="footer-text">

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import '../LandingPage.css'
-import { supabase } from '../supabaseClient' // Fix import
+import { supabase } from '../supabaseClient'
 
 function EntryPage() {
   const [email, setEmail] = useState('')
@@ -111,7 +111,7 @@ function EntryPage() {
           <div className="stores-grid">
             <div
               className="store-card"
-              onClick={() => window.open('https://maps.app.goo.gl/k588fjrMoxivJra4A', '_blank')}
+              onClick={() => window.open('https://maps.app.goo.gl/dzUXF7fs8wHLRb6v7', '_blank')}
             >
               <h3 className="store-name">GADGET 360 Kukatpally Store</h3>
               <p className="store-city">Hyderbad, Kukatpally</p>
@@ -121,7 +121,7 @@ function EntryPage() {
 
             <div
               className="store-card"
-              onClick={() => window.open('https://maps.app.goo.gl/Heuvn1QdeQbMEGhV7?g_st=ac', '_blank')}
+              onClick={() => window.open('https://maps.app.goo.gl/xZM5q3ppURQNJ1n99', '_blank')}
             >
               <h3 className="store-name">GADGET 360 Bandlaguda Jagir Store</h3>
               <p className="store-city">Hyderbad, Bandlaguda Jagir</p>
@@ -131,10 +131,10 @@ function EntryPage() {
 
             <div
               className="store-card"
-              onClick={() => window.open('https://maps.google.com/?q=GADGET+360+Store+Chicago', '_blank')}
+              onClick={() => window.open('https://maps.app.goo.gl/LEBSo4VGExHkDyXz6', '_blank')}
             >
-              <h3 className="store-name">GADGET 360 Hyderbad Store</h3>
-              <p className="store-city">Hyderbad</p>
+              <h3 className="store-name">GADGET 360 Toli Chowki Store</h3>
+              <p className="store-city">Hyderbad, Toli Chowki</p>
               <p className="store-hours">Mon-Sat: 10AM - 8PM </p>
               <span className="store-link">View on Maps →</span>
             </div>

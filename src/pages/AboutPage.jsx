@@ -21,7 +21,7 @@ function AboutPage() {
 
           <div className="about-content">
             <p className={`section-text ${isVisible ? 'animate-fade-in-up-delay-1' : ''}`}>
-              Welcome to GADGET 360 a new-age destination built for mobile enthusiasts who care about style, protection, and quality.
+            Gadget360 has become Hyderabad’s most trusted name in mobile style — proudly built on the reputation of our three premium stores.
               Our upcoming website is more than just an online store — it’s a hub for everything mobile.
               From expert-curated phone cases and accessories to style guides, care tips, and trend updates, we’re creating a space where design meets functionality..
             </p>
