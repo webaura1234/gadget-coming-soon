@@ -22,10 +22,21 @@ function EntryPage() {
     setSubmitMessage('')
 
     try {
+      // Sanitize and validate email
+      const sanitizedEmail = email.trim().toLowerCase().slice(0, 255)
+      
+      // Basic email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(sanitizedEmail)) {
+        setSubmitMessage('Please enter a valid email address.')
+        setIsSubmitting(false)
+        return
+      }
+
       const { error } = await supabase
         .from('subscribers')
         .insert([{ 
-          email: email.trim(),
+          email: sanitizedEmail,
           created_at: new Date().toISOString()
         }])
 

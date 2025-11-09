@@ -28,10 +28,40 @@ function ContactPage() {
     setMessageType('')
 
     try {
+      // Sanitize inputs
+      const sanitizedName = formData.name.trim().slice(0, 200)
+      const sanitizedEmail = formData.email.trim().slice(0, 255).toLowerCase()
+      const sanitizedMessage = formData.message.trim().slice(0, 2000)
+
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(sanitizedEmail)) {
+        setSubmitMessage('Please enter a valid email address.')
+        setMessageType('error')
+        setIsSubmitting(false)
+        setTimeout(() => {
+          setSubmitMessage('')
+          setMessageType('')
+        }, 5000)
+        return
+      }
+
+      // Validate required fields
+      if (!sanitizedName || !sanitizedMessage) {
+        setSubmitMessage('Please fill in all required fields.')
+        setMessageType('error')
+        setIsSubmitting(false)
+        setTimeout(() => {
+          setSubmitMessage('')
+          setMessageType('')
+        }, 5000)
+        return
+      }
+
       const payload = {
-        name: formData.name.trim(),
-        email: formData.email.trim(),
-        message: formData.message.trim(),
+        name: sanitizedName,
+        email: sanitizedEmail,
+        message: sanitizedMessage,
         created_at: new Date().toISOString()
       }
 
@@ -96,14 +126,14 @@ function ContactPage() {
             <div className="contact-info-section">
               <div className="contact-item-detailed">
                 <h3 className="contact-label">Email</h3>
-                <a href="hpsventerprisespvtltd@gmail.com" className="contact-link-large">
+                <a href="mailto:hpsventerprisespvtltd@gmail.com" className="contact-link-large">
                   hpsventerprisespvtltd@gmail.com
                 </a>
               </div>
 
               <div className="contact-item-detailed">
                 <h3 className="contact-label">Follow Us</h3>
-                <div className="social-links"> <a href="https://www.instagram.com/gadget360india?igsh=MWVyMGpzdmVzazY1Yw==" target="_blank" className="social-link">
+                <div className="social-links"> <a href="https://www.instagram.com/gadget360india?igsh=MWVyMGpzdmVzazY1Yw==" target="_blank" rel="noopener noreferrer" className="social-link">
                   Instagram
                 </a>
 
