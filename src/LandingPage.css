@@ -539,15 +539,16 @@ html {
 }
 
 .store-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
   padding: 2rem;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
 }
 
 .store-card::before {
@@ -574,9 +575,9 @@ html {
 
 .store-card:hover {
   transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1), 0 0 20px rgba(255, 255, 255, 0.02);
 }
 
 .store-card:hover::before {
@@ -867,12 +868,33 @@ html {
   transition: all 0.3s ease;
   display: inline-block;
   font-family: 'Inter', sans-serif;
+  position: relative;
+  padding: 2px 4px;
+  margin: -2px -4px;
 }
 
 .contact-link-large:hover {
-  opacity: 1;
-  transform: translateY(-2px);
   color: #ffffff;
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.contact-link-large::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ffffff, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.contact-link-large:hover::after {
+  opacity: 1;
 }
 
 .contact-form {
@@ -1668,4 +1690,9 @@ html {
     font-size: clamp(1rem, 4vw, 1.5rem);
     padding: 0 0.5rem;
   }
+}
+
+
+.contact-link-large:hover{
+  text-decoration: underline;
 }

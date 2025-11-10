@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import '../LandingPage.css'
 import { supabase } from '../supabaseClient'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 function ContactPage() {
   const [isVisible, setIsVisible] = useState(false)
@@ -133,19 +135,24 @@ function ContactPage() {
 
               <div className="contact-item-detailed">
                 <h3 className="contact-label">Follow Us</h3>
-                <div className="social-links"> <a href="https://www.instagram.com/gadget360india?igsh=MWVyMGpzdmVzazY1Yw==" target="_blank" rel="noopener noreferrer" className="social-link">
-                  Instagram
-                </a>
+                <div className="social-links">
+                  <a 
+                    href="https://www.instagram.com/gadget360india?igsh=MWVyMGpzdmVzazY1Yw==" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="social-link social-icon"
+                  >
+                    <FontAwesomeIcon icon={faInstagram} size="2x" />
+                  </a>
 
                   <a 
                     href="https://wa.me/919848014599" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="social-link"
+                    className="social-link social-icon"
                   >
-                    Whatsapp
+                    <FontAwesomeIcon icon={faWhatsapp} size="2x" />
                   </a>
-                  
                 </div>
               </div>
             </div>
