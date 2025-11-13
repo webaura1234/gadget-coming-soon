@@ -512,7 +512,7 @@ html {
 
 .email-section {
   margin-top: -4rem;
-  /* padding-top: 1.5rem; */
+  padding-top: 1.5rem;
   position: relative;
   z-index: 15;
   visibility: visible !important;
