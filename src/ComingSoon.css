@@ -37,20 +37,18 @@
 /* --- 2. CONTAINER & SETUP --- */
 
 .cf-coming-soon-container {
-    /* CHANGED: Background color set to transparent to allow video to show */
     background-color: transparent; 
-    color: #fff; /* Default white text */
+    color: #fff; 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    /* CHANGED: Decreased height from 50vh to 40vh */
-    min-height: 40vh; 
     width: 100%;
     text-align: center;
     font-family: 'Poppins', sans-serif; 
     overflow: hidden; 
     position: relative;
+    padding: 100px 0 10px;
 }
 
 /* Background gradient effect */
@@ -133,7 +131,7 @@
 .cf-sub-text {
     font-size: 1.2em;
     color: #aaa; 
-    margin-bottom: 3em;
+    margin-bottom: 1.5em;
     line-height: 1.6;
     font-weight: 300;
     /* Animation */
@@ -232,6 +230,9 @@
 }
 
 @media (max-width: 768px) {
+    .cf-coming-soon-container {
+        padding: 80px 0 30px;
+    }
     .cf-header {
         margin-bottom: 30px;
     }
@@ -260,6 +261,9 @@
 }
 
 @media (max-width: 480px) {
+    .cf-coming-soon-container {
+        padding: 70px 0 25px;
+    }
     .cf-main-headline {
         font-size: 2em;
     }
