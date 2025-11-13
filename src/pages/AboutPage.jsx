@@ -25,12 +25,6 @@ function AboutPage() {
               Our upcoming website is more than just an online store — it’s a hub for everything mobile.
               From expert-curated phone cases and accessories to style guides, care tips, and trend updates, we’re creating a space where design meets functionality..
             </p>
-
-            <p className={`section-text ${isVisible ? 'animate-fade-in-up-delay-2' : ''}`}>
-              Every product is thoughtfully selected to match your lifestyle — blending aesthetics, durability, and innovation in every detail.
-              At GADGET 360 , we believe your phone deserves more than protection —
-              it deserves personality, elegance, and premium care.
-            </p>
           </div>
 
           {/* Image Gallery Section */}
