@@ -103,7 +103,7 @@ function EntryPage() {
               onClick={() => window.open('https://maps.app.goo.gl/dzUXF7fs8wHLRb6v7', '_blank')}
             >
               <h3 className="store-name">GADGET 360 Kukatpally Store</h3>
-              <p className="store-city">Hyderbad, Kukatpally</p>
+              <p className="store-city">Sri Sri Dwarakamai, Plot 7, K P H B Phase 9, Kukatpally, Hyderabad, Telangana 500085</p>
               <p className="store-city">Contact : 9848014599</p>
               <span className="store-link">View on Maps →</span>
             </div>
@@ -113,7 +113,7 @@ function EntryPage() {
               onClick={() => window.open('https://maps.app.goo.gl/xZM5q3ppURQNJ1n99', '_blank')}
             >
               <h3 className="store-name">GADGET 360 Bandlaguda Jagir Store</h3>
-              <p className="store-city">Hyderbad, Bandlaguda Jagir</p>
+              <p className="store-city">3rd floor, Vantage Line Mall, Bandlaguda Jagir, Hyderabad, Telangana 500091</p>
                <p className="store-city">Contact : 9848014599</p>
               <span className="store-link">View on Maps →</span>
             </div>
@@ -123,7 +123,7 @@ function EntryPage() {
               onClick={() => window.open('https://maps.app.goo.gl/LEBSo4VGExHkDyXz6', '_blank')}
             >
               <h3 className="store-name">GADGET 360 Toli Chowki Store</h3>
-              <p className="store-city">Hyderbad, Toli Chowki</p> 
+              <p className="store-city">SK Arcade, Tolichowki Rd, beside Bajaj electronics, Galaxy, Deluxe Colony, Janaki Nagar Colony, Toli Chowki, Hyderabad, Telangana 500008</p> 
                <p className="store-city">Contact : 9848014599</p>
               <span className="store-link">View on Maps →</span>
             </div>
