@@ -104,6 +104,7 @@ function EntryPage() {
             >
               <h3 className="store-name">GADGET 360 Kukatpally Store</h3>
               <p className="store-city">Hyderbad, Kukatpally</p>
+              <p className="store-city">Contact : 9848014599</p>
               <span className="store-link">View on Maps →</span>
             </div>
 
@@ -113,6 +114,7 @@ function EntryPage() {
             >
               <h3 className="store-name">GADGET 360 Bandlaguda Jagir Store</h3>
               <p className="store-city">Hyderbad, Bandlaguda Jagir</p>
+               <p className="store-city">Contact : 9848014599</p>
               <span className="store-link">View on Maps →</span>
             </div>
 
@@ -122,6 +124,7 @@ function EntryPage() {
             >
               <h3 className="store-name">GADGET 360 Toli Chowki Store</h3>
               <p className="store-city">Hyderbad, Toli Chowki</p> 
+               <p className="store-city">Contact : 9848014599</p>
               <span className="store-link">View on Maps →</span>
             </div>
           </div>
